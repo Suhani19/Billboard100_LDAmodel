@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #image_t {
+            position: relative;
+            left: 90px;
+            bottom: 90px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="text-danger">Billboard Hot100 Prediction Using Spotify Data
+                <img src="{{url_for('static',filename = 'css/spotify_logo.jpg')}}" class="img-thumbnail" alt="logo" width="300" height="200" id="image_t" align="right">
+            </h1>
+            <br>
+            <ul>
+                <li class="text-success">
+                    A Machine Learning Web Application which uses flask.
+                </li>
+                <li class="text-success">
+                    It uses Linear Discriminant Analysis Model to predict whether a song will hit the list of Billboard Top100 Songs or not.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <form id="predict" action="{{url_for('predict')}}" method="POST">
+            <div class="form-group">
+                <label for="artistname ">Name of the Artist </label>
+                <input type="text " placeholder=" Artist Name " class="form-control" id="artistname " name="artistname "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="songtitle ">Title of the Song </label>
+                <input type="text " placeholder="Enter the Song Title " class="form-control" id="songtitle " name="songtitle "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="danceability ">Danceability </label>
+                <input type="text " placeholder="Enter Danceability Value eg 0.675 " class="form-control" id="danceability " name="danceability "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="energy ">Energy </label>
+                <input type="text " placeholder="Enter Energy Value eg 0.875 " class="form-control" id="energy " name="energy "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="loudness ">Loudness </label>
+                <input type="text " placeholder="Enter Loudness Value eg -4.675 " class="form-control" id="loudness " name="loudness "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="speechiness ">Speechiness </label>
+                <input type="text " placeholder="Enter Speechiness Value eg 0.0275 " class="form-control" id="speechiness " name="speechiness "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="acoustiness ">Acoustiness </label>
+                <input type="text " placeholder="Enter Acoustiness Value eg 0.00775 " class="form-control" id="acoustiness " name="acoustiness "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="instrumentalness ">Instrumentalness </label>
+                <input type="text " placeholder="Enter Instrumentalness Value eg 0.0175 " class="form-control" id="instrumentalness " name="instrumentalness "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="liveness ">Liveness </label>
+                <input type="text " placeholder="Enter Liveness Value eg 0.175 " class="form-control" id="liveness " name="liveness "></input>
+            </div>
+
+            <div class="form-group">
+                <label for="valence ">Valence </label>
+                <input type="text " placeholder="Enter Valence Value eg 0.875 " class="form-control" id="valence " name="valence "></input>
+            </div>
+
+            <div class="form- group">
+                <label for="tempo ">Tempo </label>
+                <input type="text " placeholder="Enter Tempo Value eg 70.275 " class="form-control" id="tempo " name="tempo "></input>
+                `</div>
+
+            <div class="form-group">
+                <label for="genre ">Genre </label>
+                <select class="form-control" id="genre " name="genre "> 
+                <option disabled selected >Select Genre </option>
+                            <option value="0">0: Alternative </option>
+                            <option value="1">1: Classical</option>
+                            <option value="2">2: Country</option>
+                            <option value="3">3: EDM</option>
+                            <option value="4">4: Jazz</option>
+                            <option value="5">5: Metal</option>
+                            <option value="6">6: Pop</option>
+                            <option value="7">7: Rap</option>
+                            <option value="8">8: Reggae</option>
+                            <option value="9">9: Rock</option>
+                         </select>
+            </div>
+            <button type="submit" class="btn btn-info active">Predict</button>
+            <button type="reset" class="btn btn-info active">Reset</button>
+        </form>
+    </div>
+    <br>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p><b><u>{{result }}</u></b></p>
+        <p></p>
+    </div>
+
+</body>
+
+</html>
+
+</html>
